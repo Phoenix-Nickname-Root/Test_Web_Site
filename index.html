@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Web Site</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/NicknameRoot/Test_Web_Site/gh-pages/icon_web.png" type="image/png">
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #falling-numbers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .number {
+            position: absolute;
+            color: green;
+            font-size: 20px;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: green;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .content {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="falling-numbers"></div>
+    <div class="content">
+        This Is A test Web Site
+    </div>
+
+    <script>
+        function createFallingNumbers() {
+            const container = document.getElementById('falling-numbers');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const numCount = 50; // количество падающих чисел
+
+            for (let i = 0; i < numCount; i++) {
+                const numElement = document.createElement('span');
+                numElement.textContent = Math.random() < 0.5 ? '0' : '1';
+                numElement.classList.add('number');
+                numElement.style.left = Math.random() * width + 'px';
+                numElement.style.top = Math.random() * height + 'px';
+                container.appendChild(numElement);
+            }
+
+            function updateNumbers() {
+                const numbers = document.querySelectorAll('.number');
+                numbers.forEach(number => {
+                    const top = parseFloat(number.style.top);
+                    if (top >= height) {
+                        number.style.top = '0px';
+                        number.style.left = Math.random() * width + 'px';
+                    } else {
+                        number.style.top = (top + 1) + 'px';
+                    }
+                });
+                requestAnimationFrame(updateNumbers);
+            }
+
+            updateNumbers();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createFallingNumbers();
+        });
+    </script>
+</body>
+</html>
