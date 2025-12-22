@@ -1,11 +1,11 @@
-# Тестовый веб-сайт
+# Test Website
 
-Привет! Этот проект представляет собой простую веб-страницу, созданную с использованием HTML. Веб-страница имеет черный фон, на котором падают зеленые нули и единицы, а также содержит надпись "This Is A test Web Site" посередине страницы.
+Hello! This project is a simple web page created using HTML. The web page has a black background with green zeros and ones falling on it, and contains the words “This Is A test Web Site” in the middle of the page.
 
-## Как использовать
-[Перейдите по данной ссылке что-бы попасть на главный сайт](https://phoenix-nickname-root.github.io/Test_Web_Site/)
+## How to use
+[Follow this link to go to the main site](https://phoenix-nickname-root.github.io/Test_Web_Site/)
 
-## Структура проекта
+## Project structure
 
-- `main.html`: основной HTML файл веб-страницы. ✅
-- `icon_web.png`: иконка веб сайта. ✅
+- `main.html` : the main HTML file of the web page. ✅
+- `icon_web.png` : the website icon. ✅
